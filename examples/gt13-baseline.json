@@ -1,0 +1,215 @@
+{
+  "tool": "kevgap",
+  "version": "0.1.0",
+  "today": "2026-11-18",
+  "snapshot": {
+    "catalogVersion": "2026.11.24",
+    "dateReleased": "2026-11-24T17:47:46.199Z",
+    "fetchedAt": "2026-11-25",
+    "source": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "entryCount": 1795
+  },
+  "snapshotAgeDays": -6,
+  "snapshotStale": false,
+  "assets": [
+    {
+      "id": "cp-smartconsole-01",
+      "vendor": "Check Point",
+      "product": "SmartConsole",
+      "version": "R81.20",
+      "status": "unpatched",
+      "patchedDate": null,
+      "verdict": "EXPOSED",
+      "reason": "unpatched and past the KEV due date",
+      "matched": [
+        {
+          "cveID": "CVE-2026-16232",
+          "vendorProject": "Check Point",
+          "product": "SmartConsole",
+          "vulnerabilityName": "Check Point SmartConsole Improper Authentication Vulnerability",
+          "dateAdded": "2026-07-22",
+          "dueDate": "2026-07-25",
+          "knownRansomwareCampaignUse": "Unknown",
+          "daysSinceAdded": 119,
+          "daysPastDue": 116,
+          "daysUntilDue": null,
+          "closedWindowDays": null,
+          "patchedLateDays": null,
+          "matchKind": "name"
+        }
+      ]
+    },
+    {
+      "id": "citrix-netscaler-01",
+      "vendor": "Citrix",
+      "product": "NetScaler ADC and Gateway",
+      "version": "14.1",
+      "status": "unpatched",
+      "patchedDate": null,
+      "verdict": "EXPOSED",
+      "reason": "unpatched and past the KEV due date",
+      "matched": [
+        {
+          "cveID": "CVE-2025-5777",
+          "vendorProject": "Citrix",
+          "product": "NetScaler ADC and Gateway",
+          "vulnerabilityName": "Citrix NetScaler ADC and Gateway Out-of-Bounds Read Vulnerability",
+          "dateAdded": "2025-07-10",
+          "dueDate": "2025-07-11",
+          "knownRansomwareCampaignUse": "Known",
+          "daysSinceAdded": 496,
+          "daysPastDue": 495,
+          "daysUntilDue": null,
+          "closedWindowDays": null,
+          "patchedLateDays": null,
+          "matchKind": "name"
+        },
+        {
+          "cveID": "CVE-2025-6543",
+          "vendorProject": "Citrix",
+          "product": "NetScaler ADC and Gateway",
+          "vulnerabilityName": "Citrix NetScaler ADC and Gateway Buffer Overflow Vulnerability",
+          "dateAdded": "2025-06-30",
+          "dueDate": "2025-07-21",
+          "knownRansomwareCampaignUse": "Unknown",
+          "daysSinceAdded": 506,
+          "daysPastDue": 485,
+          "daysUntilDue": null,
+          "closedWindowDays": null,
+          "patchedLateDays": null,
+          "matchKind": "name"
+        }
+      ]
+    },
+    {
+      "id": "ivanti-connect-01",
+      "vendor": "Ivanti",
+      "product": "Connect Secure",
+      "version": "22.7R2",
+      "status": "unpatched",
+      "patchedDate": null,
+      "verdict": "EXPOSED",
+      "reason": "unpatched and past the KEV due date",
+      "matched": [
+        {
+          "cveID": "CVE-2026-118527",
+          "vendorProject": "Ivanti",
+          "product": "Connect Secure",
+          "vulnerabilityName": "Ivanti Connect Secure Generation of Predictable Numbers or Identifiers Vulnerability",
+          "dateAdded": "2026-10-30",
+          "dueDate": "2026-11-13",
+          "knownRansomwareCampaignUse": "Unknown",
+          "daysSinceAdded": 19,
+          "daysPastDue": 5,
+          "daysUntilDue": null,
+          "closedWindowDays": null,
+          "patchedLateDays": null,
+          "matchKind": "name"
+        },
+        {
+          "cveID": "CVE-2026-111357",
+          "vendorProject": "Ivanti",
+          "product": "Connect Secure",
+          "vulnerabilityName": "Ivanti Connect Secure Missing Authentication for Critical Function Vulnerability",
+          "dateAdded": "2026-10-30",
+          "dueDate": "2026-11-02",
+          "knownRansomwareCampaignUse": "Unknown",
+          "daysSinceAdded": 19,
+          "daysPastDue": 16,
+          "daysUntilDue": null,
+          "closedWindowDays": null,
+          "patchedLateDays": null,
+          "matchKind": "name"
+        },
+        {
+          "cveID": "CVE-2026-104935",
+          "vendorProject": "Ivanti",
+          "product": "Connect Secure",
+          "vulnerabilityName": "Ivanti Connect Secure Authentication Bypass by Spoofing Vulnerability",
+          "dateAdded": "2026-10-13",
+          "dueDate": "2026-10-16",
+          "knownRansomwareCampaignUse": "Unknown",
+          "daysSinceAdded": 36,
+          "daysPastDue": 33,
+          "daysUntilDue": null,
+          "closedWindowDays": null,
+          "patchedLateDays": null,
+          "matchKind": "name"
+        }
+      ]
+    },
+    {
+      "id": "openssh-01",
+      "vendor": "OpenBSD",
+      "product": "OpenSSH",
+      "version": "10.0",
+      "status": "patched",
+      "patchedDate": "2026-11-13",
+      "verdict": "SAFE",
+      "reason": "patched",
+      "matched": [
+        {
+          "cveID": "CVE-2026-123158",
+          "vendorProject": "OpenBSD",
+          "product": "OpenSSH",
+          "vulnerabilityName": "OpenBSD OpenSSH Unexpected Status Code or Return Value Vulnerability",
+          "dateAdded": "2026-11-09",
+          "dueDate": "2026-11-12",
+          "knownRansomwareCampaignUse": "Unknown",
+          "daysSinceAdded": 9,
+          "daysPastDue": 6,
+          "daysUntilDue": null,
+          "closedWindowDays": 4,
+          "patchedLateDays": 1,
+          "matchKind": "name"
+        }
+      ]
+    },
+    {
+      "id": "acme-router-01",
+      "vendor": "Acme",
+      "product": "WidgetRouter",
+      "version": "3.2",
+      "status": "unpatched",
+      "patchedDate": null,
+      "verdict": "NOT-LISTED",
+      "reason": "no KEV entry names this product",
+      "matched": []
+    },
+    {
+      "id": "mystery-01",
+      "vendor": "Check Point",
+      "product": "SmartConsole",
+      "version": "R81.10",
+      "status": "unknown",
+      "patchedDate": null,
+      "verdict": "UNKNOWN",
+      "reason": "status is unknown; patch state not declared",
+      "matched": [
+        {
+          "cveID": "CVE-2026-16232",
+          "vendorProject": "Check Point",
+          "product": "SmartConsole",
+          "vulnerabilityName": "Check Point SmartConsole Improper Authentication Vulnerability",
+          "dateAdded": "2026-07-22",
+          "dueDate": "2026-07-25",
+          "knownRansomwareCampaignUse": "Unknown",
+          "daysSinceAdded": 119,
+          "daysPastDue": 116,
+          "daysUntilDue": null,
+          "closedWindowDays": null,
+          "patchedLateDays": null,
+          "matchKind": "name"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "exposed": 3,
+    "atRisk": 0,
+    "safe": 1,
+    "unknown": 1,
+    "notListed": 1,
+    "total": 6
+  }
+}

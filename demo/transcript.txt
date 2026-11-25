@@ -1,0 +1,67 @@
+# kevgap demo - real CLI output
+# (audit runs on the REAL bundled KEV snapshot: catalog 2026.11.24,
+#  1,795 entries; inventory is examples/gt13-inventory.json;
+#  the baseline below is produced by a real audit run)
+
+$ kevgap init demo-estate
+created demo-estate/kevgap.json
+created demo-estate/kevgap.config.json
+Next: edit kevgap.json (declare each asset status), then run: kevgap audit kevgap.json
+
+$ kevgap audit examples/gt13-inventory.json
+kevgap 0.1.0 - KEV exposure gap audit
+snapshot: catalog 2026.11.24 released 2026-11-24 fetched 2026-11-25 (1795 entries, 1 days old)
+today: 2026-11-25
+
+ASSET                  VERDICT    CVE                WINDOW                                         STATUS
+cp-smartconsole-01     EXPOSED    CVE-2026-16232     open 126d, 123d past due                       unpatched
+  reason: unpatched and past the KEV due date
+citrix-netscaler-01    EXPOSED    CVE-2025-5777      open 503d, 502d past due                       unpatched
+                                  CVE-2025-6543      open 513d, 492d past due                       
+  reason: unpatched and past the KEV due date
+ivanti-connect-01      EXPOSED    CVE-2026-118527    open 26d, 12d past due                         unpatched
+                                  CVE-2026-111357    open 26d, 23d past due                         
+                                  CVE-2026-104935    open 43d, 40d past due                         
+  reason: unpatched and past the KEV due date
+openssh-01             SAFE       CVE-2026-123158    closed 4d after listing, patched 1d past due   patched
+  reason: patched
+acme-router-01         NOT-LISTED -                  no KEV entry names this product                unpatched
+mystery-01             UNKNOWN    CVE-2026-16232     open 126d, 123d past due                       unknown
+  reason: status is unknown; patch state not declared
+
+summary: 3 EXPOSED, 0 AT-RISK, 1 SAFE, 1 UNKNOWN, 1 NOT-LISTED (6 assets)
+exit: 1
+
+$ kevgap check examples/gt13-inventory.json
+kevgap check - 3 EXPOSED, 0 AT-RISK, 1 SAFE, 1 UNKNOWN, 1 NOT-LISTED (6 assets)
+snapshot: catalog 2026.11.24, 1 days old
+- cp-smartconsole-01 EXPOSED CVE-2026-16232 (123d past due)
+- citrix-netscaler-01 EXPOSED CVE-2025-5777 (502d past due)
+- ivanti-connect-01 EXPOSED CVE-2026-104935 (40d past due)
+GATE FAILED: 3 asset(s) past their KEV due date.
+exit: 1
+
+$ KEVGAP_TODAY=2026-11-18 kevgap audit examples/gt13-inventory.json --save-baseline baseline.json > /dev/null
+exit: 1
+(baseline receipt written, 6737 bytes)
+
+$ kevgap diff --baseline baseline.json examples/gt13-inventory.json
+kevgap diff - baseline 2026-11-18 vs 2026-11-25
+- [window-growing] cp-smartconsole-01: worst exposure window grew from 116d to 123d past due
+- [window-growing] citrix-netscaler-01: worst exposure window grew from 495d to 502d past due
+- [window-growing] ivanti-connect-01: worst exposure window grew from 33d to 40d past due
+- [window-growing] mystery-01: worst exposure window grew from 116d to 123d past due
+diff: 4 regression(s) - exposure is growing or newly overdue.
+exit: 1
+
+$ kevgap explain CVE-2026-16232
+CVE-2026-16232 - Check Point SmartConsole Improper Authentication Vulnerability
+vendor: Check Point
+product: SmartConsole
+KEV listed: 2026-07-22 (due 2026-07-25)
+days since listing: 126
+days past KEV due date: 123
+known ransomware use: Unknown
+required action: Check Point SmartConsole contains an improper authentication vulnerability which could allow an unauthenticated remote attacker to obtain an application login token and use it to authenticate with full administrative privileges.
+Note: KEV does not carry fixed versions, so kevgap cannot tell from KEV alone whether a version is patched. Patch status is operator-declared.
+Note: KEV due dates are the federal-agency deadlines from CISA BOD 19-02; your own SLA may differ (see grace-days in kevgap.config.json).
